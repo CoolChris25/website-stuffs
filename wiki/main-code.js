@@ -91,4 +91,5 @@ function applyTheme(themeName) {
 window.onload = function() {
     const savedTheme = localStorage.getItem('selected-theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
-};
+}
+}
