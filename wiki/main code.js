@@ -74,3 +74,21 @@ function updateSelection(items) {
 document.addEventListener('click', (e) => {
   if (e.target !== input) list.style.display = 'none';
 });
+
+function darkModeActivated() {
+
+
+}
+
+function applyTheme(themeName) {
+  // 1. Change the attribute on the <html> tag
+  document.documentElement.setAttribute('data-theme', themeName);
+
+  localStorage.setItem('selected-theme', themeName);
+  
+  console.log("Switched to " + themeName + " mode!");
+
+window.onload = function() {
+    const savedTheme = localStorage.getItem('selected-theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+};

@@ -1,15 +1,82 @@
-/* Container and General Styles */
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    /* Remove 'transition' if you want zero flicker on load */
+    transition: background-color 0.3s ease; 
+}
+
+
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+}
+
+
+
+/* ==========================================
+   1. THEME DEFS
+   ========================================== */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #1a1a1a;
+    --heading-color: #333333;
+    --sidebar-bg: #e0e0e0;
+    --accent-color: #007bff;
+    --input-border: #e0e0e0;
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #bcbcbc;
+    --heading-color: #ffffff;
+    --sidebar-bg: #1e1e1e;
+    --accent-color: #00a6ac;
+    --input-border: #333;
+}
+
+[data-theme="kawaii"] {
+    --bg-color: #fefefe;          
+    --text-color: #1e181a;
+    --heading-color: #ed164f;
+    --sidebar-bg: #fbd1d5;
+    --accent-color: #ff75e6;
+    --input-border: #f27c9c;
+}
+
+[data-theme="blue"] {
+    --bg-color: #001529;
+    --text-color: #e6f7ff;
+    --heading-color: #40a9ff;
+    --sidebar-bg: #002140;
+    --accent-color: #1890ff;
+    --input-border: #003a8c;
+}
+
+/* ==========================================
+    LAYOUT
+   ========================================== */
 body {
     font-family: 'Segoe UI', sans-serif;
     padding: 20px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.3s, color 0.3s;
 }
+
+a:link {
+color: var(--accent-color)
+}
+
 
 .search-wrapper {
     position: relative;
     width: 350px;
 }
 
-/* Header/Logo Layout */
 .header-inline {
     display: flex;
     align-items: center; 
@@ -23,29 +90,52 @@ body {
     object-fit: contain;
 }
 
-/* Input Bar */
+.wiki-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.content-area {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Updated Sidebar: Kept your width/height, but linked the color */
+#sidebar {
+    width: 150px;
+    background-color: var(--sidebar-bg); 
+    height: 100vh;
+    padding: 15px;
+    border-radius: 15px; /* The "rounded" touch */
+    transition: background-color 0.3s;
+}
+
+/* ==========================================
+    SEARHC BAR
+   ========================================== */
 #myInput {
     width: 100%;
     padding: 12px 18px;
-    border: 2px solid #e0e0e0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 2px solid var(--input-border);
     border-radius: 10px;
     font-size: 16px;
     outline: none;
-    transition: all 0.2s ease;
 }
 
 #myInput:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 10px rgba(0,123,255,0.15);
+    border-color: var(--accent-color);
 }
 
-/* Dropdown styles */
 .results-list {
     position: absolute;
     top: 100%; 
     left: 0; 
     right: 0;
-    background: #fff;
+    background: var(--bg-color);
+    color: var(--text-color);
     border-radius: 10px;
     margin-top: 8px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -58,41 +148,73 @@ body {
     z-index: 100;
 }
 
-/* Individual Results */
 .results-item {
     padding: 12px 18px;
     cursor: pointer;
-    border-bottom: 1px solid #f1f1f1;
-    transition: background 0.2s;
+    border-bottom: 1px solid var(--input-border);
 }
 
 .results-item:hover {
-    background: #f8f9fa;
-    color: #007bff;
+    background: var(--sidebar-bg);
+    color: var(--heading-color);
 }
 
-.results-item:last-child { 
-    border-bottom: none; 
+/* ==========================================
+    THEMES DROPDOWN
+   ========================================== */
+.theme-menu {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin-top: 10px;
 }
 
-.results-item.active {
-    background: #e7f3ff;
-    border-left: 4px solid #007bff;
-    color: #007bff;
-}
-
-.highlight {
+.menu-trigger {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--accent-color);
+    color: #fff; /* Keep button text white for contrast */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
     font-weight: bold;
-    color: #007bff; 
 }
 
-/* Tribute Page */
-.TRIBUTE #info-icon {
-    width: 100px;
-    height: auto;
+.menu-content {
+    display: none; 
+    position: absolute;
+    background-color: var(--sidebar-bg);
+    min-width: 140px;
+    z-index: 100;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
 }
 
+.theme-menu:hover .menu-content {
+    display: block;
+}
+
+.menu-content button {
+    width: 100%;
+    padding: 10px;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    text-align: left;
+    cursor: pointer;
+}
+
+.menu-content button:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* ==========================================
+   THEMES
+   ========================================== */
+[data-theme="kawaii"] h1::before { content: "🎀 "; }
 .thang-wiki #creation {
     font-size: 170%;
-    color: rgb(0, 166, 172);
+    color: var(--accent-color);
 }
