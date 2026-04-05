@@ -32,17 +32,20 @@
         </main>
 
         <aside id="sidebar">
-            <div class="theme-menu">
-                <button class="menu-trigger" aria-haspopup="true">Change Theme 🎨</button>
-                <div class="menu-content">
-                    <button onclick="applyTheme('light')">Default Light</button>
-                    <button onclick="applyTheme('dark')">Dark Mode</button>
-                    <button onclick="applyTheme('kawaii')">🎀 Kawaii Mode</button>
-                    <button onclick="applyTheme('blue')">Ocean Blue</button>
-                    <button onclick="applyTheme('DARK MODE')">DARK MODE</button>
-                </div>
+    <div class="sidebar-inner">
+        <div class="theme-menu">
+            <button class="menu-trigger" aria-haspopup="true" onclick="toggleThemeMenu(event)">Change Theme 🎨</button>
+            <div class="menu-content" id="themeMenuContent">
+                <button onclick="applyTheme('light')">Default Light</button>
+                <button onclick="applyTheme('dark')">Dark Mode</button>
+                <button onclick="applyTheme('kawaii')">🎀 Kawaii Mode</button>
+                <button onclick="applyTheme('blue')">Ocean Blue</button>
+                <button onclick="applyTheme('DARK MODE')">DARK MODE</button>
             </div>
-        </aside>
+        </div>
+    </div>
+</aside>
+<button id="sidebar-toggle" onclick="toggleSidebar()">&#9776;</button>
 
     </div> 
 </body>

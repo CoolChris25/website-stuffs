@@ -2,7 +2,6 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    /* Remove 'transition' if you want zero flicker on load */
     transition: background-color 0.3s ease; 
 }
 
@@ -117,9 +116,47 @@ color: var(--accent-color)
     height: 100vh;
     padding: 15px;
     border-radius: 15px;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease; 
+    overflow-x: hidden; 
+    white-space: nowrap;
 }
 
+#sidebar.collapsed {
+    width: 0;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    opacity: 0; 
+    pointer-events: none; 
+}
+
+.sidebar-inner {
+    width: 150px; 
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar-toggle {
+    position: fixed; 
+    top: 10px;
+    left: 10px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%; 
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#sidebar-toggle:hover {
+    filter: brightness(1.1); /* Subtle glow on hover */
+}
 /* ==========================================
     SEARHC BAR
    ========================================== */
@@ -191,18 +228,22 @@ color: var(--accent-color)
 
 .menu-content {
     display: none; 
+    flex-direction: column;
     position: absolute;
     background-color: var(--sidebar-bg);
     min-width: 140px;
     z-index: 100;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    top: 100%;
+    left: 0;
     overflow: hidden;
 }
 
-.theme-menu:hover .menu-content {
-    display: block;
+.menu-content.show {
+    display: flex !important;
 }
+
 
 .menu-content button {
     width: 100%;

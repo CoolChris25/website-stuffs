@@ -75,13 +75,8 @@ document.addEventListener('click', (e) => {
   if (e.target !== input) list.style.display = 'none';
 });
 
-function darkModeActivated() {
-
-
-}
 
 function applyTheme(themeName) {
-  // 1. Change the attribute on the <html> tag
   document.documentElement.setAttribute('data-theme', themeName);
 
   localStorage.setItem('selected-theme', themeName);
@@ -93,3 +88,24 @@ window.onload = function() {
     document.documentElement.setAttribute('data-theme', savedTheme);
 }
 }
+
+function toggleSidebar() {
+    const sidebar = document.getElementById("sidebar");
+    sidebar.classList.toggle("collapsed");
+}
+
+function toggleThemeMenu(event) {
+    if (event) event.stopPropagation(); 
+    
+    const menu = document.getElementById("themeMenuContent");
+    menu.classList.toggle("show");
+}
+
+document.addEventListener('click', function(event) {
+    const menu = document.getElementById("themeMenuContent");
+    const trigger = document.querySelector(".menu-trigger");
+    
+    if (menu.classList.contains('show') && !menu.contains(event.target) && event.target !== trigger) {
+        menu.classList.remove('show');
+    }
+});
