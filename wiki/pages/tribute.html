@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>draft1 | Wiki</title>
 
-    <!-- 1. ANTI-FLASH SCRIPT (Must be first!) -->
     <script>
         (function() {
             const savedTheme = localStorage.getItem('selected-theme') || 'light';
@@ -13,13 +12,12 @@
         })();
     </script>
 
-    <!-- 2. RELATIVE LINKS (../ jumps out of the 'pages' folder) -->
     <link rel="stylesheet" href="../styles.css">
+    <title>Tribute</title>
 </head>
 <body>
-
+<!--formatting-->
     <div class="wiki-layout">
-        <!-- THE SIDEBAR (Stays the same on every page) -->
         <aside id="sidebar">
             <div class="header-inline">
                 <img src="../info%20icon.png" id="info-icon" alt="Logo">
@@ -36,6 +34,7 @@
                         <button onclick="applyTheme('dark')">Dark Mode</button>
                         <button onclick="applyTheme('kawaii')">🎀 Kawaii Mode</button>
                         <button onclick="applyTheme('blue')">Ocean Blue</button>
+                        <button onclick="applyTheme('DARK MODE')">DARK MODE</button>
                     </div>
                 </div>
             </nav>
@@ -61,6 +60,6 @@
     </div>
 
     <!-- 3. MAIN JS LINK (Use %20 for the space in your filename) -->
-    <script src="../main%20code.js"></script>
+    <script src="../main-code.js"></script>
 </body>
 </html>

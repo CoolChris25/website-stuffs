@@ -56,6 +56,15 @@ body {
     --input-border: #003a8c;
 }
 
+[data-theme="DARK MODE"] {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --heading-color: #ffffff;
+    --sidebar-bg: #010101;
+    --accent-color: #1a1a1a;
+    --input-border: #171717;
+}
+
 /* ==========================================
     LAYOUT
    ========================================== */
@@ -94,6 +103,7 @@ color: var(--accent-color)
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    flex-direction: row-reverse;
 }
 
 .content-area {
@@ -101,13 +111,12 @@ color: var(--accent-color)
     padding: 20px;
 }
 
-/* Updated Sidebar: Kept your width/height, but linked the color */
 #sidebar {
     width: 150px;
     background-color: var(--sidebar-bg); 
     height: 100vh;
     padding: 15px;
-    border-radius: 15px; /* The "rounded" touch */
+    border-radius: 15px;
     transition: background-color 0.3s;
 }
 
@@ -217,4 +226,30 @@ color: var(--accent-color)
 .thang-wiki #creation {
     font-size: 170%;
     color: var(--accent-color);
+}
+[data-theme="kawaii"] h2::before { content: "😺 "; }
+.thang-wiki #creation {
+    font-size: 170%;
+    color: var(--accent-color);
+}
+
+/* ==========================================
+    APPLE CIDER SMP
+   ========================================== */
+#apple-cider-logo {
+    width: 200px;
+    height: auto;
+    border-radius: 15px;
+    margin: 20px 0;
+
+}
+#apple-cider-info-box {
+    background-color: var(--sidebar-bg);
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 200px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    float: right;
 }
