@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apple cider smp | Wiki</title>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('selected-theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+    <link rel="stylesheet" href="/wiki/wiki-styles/main-styles.css">
+    <script src="/wiki/wiki-JS/main-code.js"></script>
+    <style>
+        /* THE FULL-SCREEN FIX */
+        body {
+            margin: 0;
+            padding: 0;
+            /* Script injects the path here */
+            background: url('../../assets/chill/MC-chill/shore.png') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+        }
+
+        /* Make the layout transparent so the BG is visible */
+        .wiki-layout, .content-area, main.content-area {
+            background: transparent !important;
+            border: none !important;
+        }
+
+        /* Keep the sidebar readable but semi-transparent */
+        #sidebar {
+            background-color: rgba(0, 0, 0, 0.2); /* Glass effect */
+            backdrop-filter: blur(8px);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Sidebar content fix */
+        .sidebar-inner {
+            background: transparent;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wiki-layout">
+        <aside id="sidebar">
+            <div class="sidebar-inner">
+                <div class="home-buttons">
+                    <a href="./index.html" class="home-button">
+                        <img src="../../assets/shared/MC/Grass_Block.webp" class="icon" style="max-width: 50px; display: flex;">
+                    </a>
+                 <a href="/wiki/index.html" class="s-home-button">
+                        <img src="/wiki/assets/shared/general/info-icon.png" class="icon" style="max-width: 50px; display: flex; ">
+                    </a>
+                </div>
+                
+                <div class="theme-menu">
+                    <button class="menu-trigger" aria-haspopup="true" onclick="toggleThemeMenu(event)">Change Theme 🎨</button>
+                    <div class="menu-content" id="themeMenuContent">
+                        <button onclick="applyTheme('light')">Default Light</button>
+                        <button onclick="applyTheme('dark')">Dark Mode</button>
+                        <button onclick="applyTheme('kawaii')">🎀 Kawaii Mode</button>
+                        <button onclick="applyTheme('blue')">Ocean Blue</button>
+                        <button onclick="applyTheme('DARK MODE')">DARK MODE</button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <button id="sidebar-toggle" onclick="toggleSidebar()">&#9776;</button>
+
+        <main class="content-area">
+            <h1>Apple Cider SMP</h1>
+    <strong><em>The apple cider SMP (survival multiplayer) is a Minecraft realm that .</em></strong>
+    <figure id="apple-cider-info-box">
+        <img src="https://media1.tenor.com/m/T-GJmpztYA4AAAAC/son-folk.gif" alt="Apple Cider SMP Logo" id="apple-cider-logo">
+        <figcaption>Apple Cider SMP Logo</figcaption>
+    </figure>
+        </main>
+    </div>
+</body>
+</html>

@@ -10,8 +10,9 @@
         document.documentElement.setAttribute('data-theme', savedTheme);
     </script>
     
-    <link rel="stylesheet" href="styles.css">
-    <script src="main-code.js" defer></script>
+    <link rel="stylesheet" href="./wiki-styles/main-styles.css">
+    <script src="./wiki-JS/main-code.js" defer></script>
+    <script src="./wiki-JS/search-bars.js" defer></script>
 </head>
 
 <body class="MAIN">
@@ -22,12 +23,12 @@
             
             <div class="header-inline">
                 <h2>Welcome!</h2> 
-                <img src="info icon.png" alt="Information icon" id="info-icon" class="image">
+                <img src="/wiki/assets/shared/general/info-icon.png" alt="Information icon" id="info-icon">
             </div>
 
             <div class="search-wrapper">
-                <input type="text" id="myInput" placeholder="Search the thangernet..." autocomplete="off">
-                <ul id="results" class="results-list"></ul>
+                <input type="text" id="MainSearch" class="search-bar" data-source="./wiki-data/main-data.json" placeholder="Search the thangernet..." autocomplete="off">
+                <ul class="results"></ul>
             </div>
         </main>
 
@@ -46,7 +47,6 @@
     </div>
 </aside>
 <button id="sidebar-toggle" onclick="toggleSidebar()">&#9776;</button>
-
     </div> 
 </body>
 </html>

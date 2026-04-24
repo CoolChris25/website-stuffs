@@ -1,19 +1,29 @@
 let myData = [];
 let focusIndex = -1;
 
-const input = document.getElementById('myInput');
-const list = document.getElementById('results');
+const input = document.querySelector(".search-bar");
+const list = document.querySelector(".results");
 
 async function loadSearchData() {
+  const dataSource = input.getAttribute('data-source'); 
+  
+  if (!dataSource) {
+    console.warn("Search Engine: No data-source attribute found on #MainSearch.");
+    return;
+  }
+
   try {
-    const response = await fetch('./data.json');
+    const response = await fetch(dataSource);
     myData = await response.json();
+    console.log(`Search Engine: Loaded ${myData.length} entries from ${dataSource}`);
   } catch (error) {
-    console.error(error);
+    console.error("Search Engine: Fatal Pathing Error!", error);
   }
 }
 
 loadSearchData();
+
+// --- SEARCH LOGIC (The Core Engine) ---
 
 input.oninput = (e) => {
   let val = e.target.value.toLowerCase();
@@ -34,8 +44,12 @@ input.oninput = (e) => {
     matches.forEach((match, index) => {
       let li = document.createElement('li');
       li.classList.add('results-item');
+      
+      // High-Fidelity Highlighting
       const regex = new RegExp(`(${val})`, 'gi');
       li.innerHTML = match.title.replace(regex, `<span class="highlight">$1</span>`);
+      
+      // The Click Protocol
       li.onclick = () => { window.location.href = match.url; };
       list.appendChild(li);
     });
@@ -44,14 +58,19 @@ input.oninput = (e) => {
   }
 };
 
+// --- NAVIGATION LOGIC (Keyboard Support) ---
+
 input.onkeydown = (e) => {
   const items = list.getElementsByTagName('li');
-  
+  if (items.length === 0) return;
+
   if (e.key === "ArrowDown") {
+    e.preventDefault(); // Stop the cursor from jumping
     focusIndex = (focusIndex + 1) % items.length;
     updateSelection(items);
   } 
   else if (e.key === "ArrowUp") {
+    e.preventDefault();
     focusIndex = (focusIndex - 1 + items.length) % items.length;
     updateSelection(items);
   } 
@@ -68,44 +87,12 @@ function updateSelection(items) {
   Array.from(items).forEach(li => li.classList.remove('active'));
   if (items[focusIndex]) {
     items[focusIndex].classList.add('active');
+    // Ensure the selected item is visible in the scrollable list
+    items[focusIndex].scrollIntoView({ block: 'nearest' });
   }
 }
 
+// Click-Away logic to hide results
 document.addEventListener('click', (e) => {
   if (e.target !== input) list.style.display = 'none';
-});
-
-
-function applyTheme(themeName) {
-  document.documentElement.setAttribute('data-theme', themeName);
-
-  localStorage.setItem('selected-theme', themeName);
-  
-  console.log("Switched to " + themeName + " mode!");
-
-window.onload = function() {
-    const savedTheme = localStorage.getItem('selected-theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-}
-}
-
-function toggleSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    sidebar.classList.toggle("collapsed");
-}
-
-function toggleThemeMenu(event) {
-    if (event) event.stopPropagation(); 
-    
-    const menu = document.getElementById("themeMenuContent");
-    menu.classList.toggle("show");
-}
-
-document.addEventListener('click', function(event) {
-    const menu = document.getElementById("themeMenuContent");
-    const trigger = document.querySelector(".menu-trigger");
-    
-    if (menu.classList.contains('show') && !menu.contains(event.target) && event.target !== trigger) {
-        menu.classList.remove('show');
-    }
 });

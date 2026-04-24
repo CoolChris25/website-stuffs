@@ -119,6 +119,9 @@ color: var(--accent-color)
     transition: all 0.3s ease; 
     overflow-x: hidden; 
     white-space: nowrap;
+    position: sticky;
+    top: 0;
+
 }
 
 #sidebar.collapsed {
@@ -160,7 +163,7 @@ color: var(--accent-color)
 /* ==========================================
     SEARHC BAR
    ========================================== */
-#myInput {
+.search-bar {
     width: 100%;
     padding: 12px 18px;
     background-color: var(--bg-color);
@@ -171,11 +174,11 @@ color: var(--accent-color)
     outline: none;
 }
 
-#myInput:focus {
+.search-bar:focus {
     border-color: var(--accent-color);
 }
 
-.results-list {
+.results {
     position: absolute;
     top: 100%; 
     left: 0; 
@@ -293,4 +296,37 @@ color: var(--accent-color)
     display: flex;
     flex-direction: column;
     float: right;
+}
+
+/* ==========================================
+    WIKIS (GENERAL)
+   ========================================== */
+.home-button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  padding: 20px;
+  width: 20px;
+}
+
+.home-buttons {
+    display: flex;
+    flex-direction: row; /* Stacks them vertically */
+    align-items: center;    /* Centers them horizontally */
+    gap: 20px;             /* Creates space between the grass and info icon */
+    padding-top: 20px;
+}
+.icon {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  width: 50px;
+  padding: 0px;
+}
+.icon:hover {
+    transform: scale(1.1); /* Give it that professional "pop" */
 }

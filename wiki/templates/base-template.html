@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}} | Wiki</title>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('selected-theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+    <link rel="stylesheet" href="/wiki/wiki-styles/main-styles.css">
+    <script src="/wiki/wiki-JS/main-code.js"></script>
+    <script src="/wiki/wiki-JS/search-bars.js"></script>
+</head>
+<body>
+
+    <div class="wiki-layout">
+<aside id="sidebar">
+    <div class="sidebar-inner">
+        <div class="theme-menu">
+            <button class="menu-trigger" aria-haspopup="true" onclick="toggleThemeMenu(event)">Change Theme 🎨</button>
+            <div class="menu-content" id="themeMenuContent">
+                <button onclick="applyTheme('light')">Default Light</button>
+                <button onclick="applyTheme('dark')">Dark Mode</button>
+                <button onclick="applyTheme('kawaii')">🎀 Kawaii Mode</button>
+                <button onclick="applyTheme('blue')">Ocean Blue</button>
+                <button onclick="applyTheme('DARK MODE')">DARK MODE</button>
+            </div>
+        </div>
+    </div>
+</aside>
+<button id="sidebar-toggle" onclick="toggleSidebar()">&#9776;</button>
+
+        <main class="content-area">
+            {{PAGE_CONTENT}}
+        </main>
+    </div>
+
+</body>
+</html>

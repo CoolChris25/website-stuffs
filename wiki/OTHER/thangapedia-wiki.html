@@ -1,13 +1,38 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thangapedia</title>
-    <link rel="stylesheet" href="/wiki/styles.css">
+    <title>thangapedia wiki | Wiki</title>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('selected-theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+    <link rel="stylesheet" href="../wiki-styles/main-styles.css">
 </head>
-<body class="thang-wiki">
-    <h1 >The Thangapedia</h1>
+<body>
+
+    <div class="wiki-layout">
+<aside id="sidebar">
+    <div class="sidebar-inner">
+        <div class="theme-menu">
+            <button class="menu-trigger" aria-haspopup="true" onclick="toggleThemeMenu(event)">Change Theme 🎨</button>
+            <div class="menu-content" id="themeMenuContent">
+                <button onclick="applyTheme('light')">Default Light</button>
+                <button onclick="applyTheme('dark')">Dark Mode</button>
+                <button onclick="applyTheme('kawaii')">🎀 Kawaii Mode</button>
+                <button onclick="applyTheme('blue')">Ocean Blue</button>
+                <button onclick="applyTheme('DARK MODE')">DARK MODE</button>
+            </div>
+        </div>
+    </div>
+</aside>
+<button id="sidebar-toggle" onclick="toggleSidebar()">&#9776;</button>
+
+        <main class="content-area">
+                            <h1 >The Thangapedia</h1>
     <em><strong>This page is dedicated to the Thangapedia. This is the personal wiki of "CoolChris25" and is designed to store random knowledge that I want to write down. Expect major changes within this page due to the site still being inbetween alpha and beta stages. </strong></em>
     <h2 id="creation">The Creation</h2>
     <p>This section will contain information about the beginnings and creation of the Thangapedia. Subsections include: <a href="#important-dates"><strong>Important dates</strong></a>, <a href="#initial-idea"><strong>Initial idea</strong></a>, and <a href="#purpose"><strong>Purpose</strong></a>.</p> 
@@ -17,6 +42,7 @@
         <li><strong>3/15/2026</strong>, The thangapedia was created</li>
         <li><strong>3/16/2026</strong>, The thangapedia was hosted on <a href="https://github.com/CoolChris25/website-stuffs"><strong>GitHub</strong></a></li>
         <li><strong>3/16/2026</strong>, The first page is made (This one)</li>
+        <li><strong>4/3/2026</strong>, Massive updates to sidebar and layout</li>
     </ul>
     <h2 id="initial-idea">Initial Idea</h2>
     <strong>This subsection was made to detail the idea behind the Thangapedia and its creation.</strong>
@@ -25,6 +51,9 @@
 
 
     <input type="text" placeholder="what should we add?">
+        </main>
+    </div>
+
+    <script src="/wiki/wiki-JS/main-code.js"></script>
 </body>
-<script src="/wiki/main code.js"></script>
 </html>
