@@ -3,40 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>apple cider smp | Wiki</title>
+    <title>index | Wiki</title>
     <script>
         (function() {
             const savedTheme = localStorage.getItem('selected-theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
         })();
     </script>
-    <link rel="stylesheet" href="/website-stuffs/wiki/wiki-styles/main-styles.css">
-    <script src="/website-stuffs/wiki/wiki-JS/main-code.js"></script>
+    <link rel="stylesheet" href="/website-stuffs/wiki-styles/main-styles.css">
     <style>
-        /* THE FULL-SCREEN FIX */
         body {
             margin: 0;
             padding: 0;
-            /* Script injects the path here */
             background: url('../../assets/chill/MC-chill/shore.png') no-repeat center center fixed;
             background-size: cover;
             min-height: 100vh;
         }
 
-        /* Make the layout transparent so the BG is visible */
         .wiki-layout, .content-area, main.content-area {
             background: transparent !important;
             border: none !important;
         }
 
-        /* Keep the sidebar readable but semi-transparent */
+
         #sidebar {
-            background-color: rgba(0, 0, 0, 0.2); /* Glass effect */
-            backdrop-filter: blur(8px);
+            background-color: rgba(0, 0, 0, 0.2);
             border-right: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Sidebar content fix */
         .sidebar-inner {
             background: transparent;
         }
@@ -51,11 +45,10 @@
                     <a href="./index.html" class="home-button">
                         <img src="../../assets/shared/MC/Grass_Block.webp" class="icon" style="max-width: 50px; display: flex;">
                     </a>
-                 <a href="/website-stuffs/wiki/index.html" class="s-home-button">
-                        <img src="/website-stuffs/wiki/assets/shared/general/info-icon.png" class="icon" style="max-width: 50px; display: flex; ">
+                 <a href="/website-stuffs/index.html" class="s-home-button">
+                        <img src="/website-stuffs/assets/shared/general/info-icon.png" class="icon" style="max-width: 50px; display: flex; ">
                     </a>
                 </div>
-                
                 <div class="theme-menu">
                     <button class="menu-trigger" aria-haspopup="true" onclick="toggleThemeMenu(event)">Change Theme 🎨</button>
                     <div class="menu-content" id="themeMenuContent">
@@ -72,13 +65,14 @@
         <button id="sidebar-toggle" onclick="toggleSidebar()">&#9776;</button>
 
         <main class="content-area">
-            <h1>Apple Cider SMP</h1>
-    <strong><em>The apple cider SMP (survival multiplayer) is a Minecraft realm that .</em></strong>
-    <figure id="apple-cider-info-box">
-        <img src="https://media1.tenor.com/m/T-GJmpztYA4AAAAC/son-folk.gif" alt="Apple Cider SMP Logo" id="apple-cider-logo">
-        <figcaption>Apple Cider SMP Logo</figcaption>
-    </figure>
+            <h1>Minecraft Wiki</h1>
+<p><em>Welcome to the Minecraft Wiki!This sub-wiki contains other sub-wikis so you can explore many things. We will try to document it all, but Minecraft might be too big to document all of.</em></p>
+<div class="search-wrapper">
+    <input type="text" id="MCSearch" class="search-bar" data-source="/website-stuffs/wiki-data/MC-data.json" placeholder="Search the MC sub-wiki..." autocomplete="off">
+    <ul class="results"></ul>
         </main>
     </div>
 </body>
+<script src="/website-stuffs/wiki-JS/main-code.js"></script>
+<script src="/website-stuffs/wiki-JS/search-bars.js"></script>
 </html>
