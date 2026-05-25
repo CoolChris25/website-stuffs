@@ -2,11 +2,15 @@
 # THE THANGER-NAVIGATOR v1.8 (Logic-Split / Error-Free Edition)
 # =====================================================================
 
-# --- 1. Root Setup ---
-$wikiRoot = (Get-Item $PSScriptRoot).Parent.FullName
+
+$wikiRoot = (Get-Item $PSScriptRoot).Parent.FullName 
+
 $templateFolder = Join-Path $wikiRoot "templates"
-$assetsRoot = Join-Path $wikiRoot "assets"
-$draftsFolder = Join-Path (Get-Item $wikiRoot).Parent.FullName "drafts" 
+$assetsRoot     = Join-Path $wikiRoot "assets"
+$wikisFolder    = Join-Path $wikiRoot "wikis"
+
+# FIX: Look for drafts INSIDE website-stuffs instead of outside
+$draftsFolder   = Join-Path $wikiRoot "drafts"
 $wikisFolder = Join-Path $wikiRoot "wikis"
 
 # --- 2. Select Output Destination ---

@@ -1,0 +1,232 @@
+/* 
+   ========================================
+   Project: The Man From The Fog
+   ========================================
+*/
+
+:root {
+    /* DEFAULT DARK THEME */
+    --bg-color: #050505;
+    --text-color: #cccccc;
+    --heading-color: #ffffff;
+    --accent-color: #8b0000; /* Blood Red */
+    --card-bg: #111111;
+    --border-color: #333333;
+    --link-color: #4a90e2;
+    --system-green: #00ff41;
+}
+
+/* THEME SWITCHER OVERRIDE */
+body.light-mode {
+    --bg-color: #e0e0e0;
+    --text-color: #222222;
+    --heading-color: #000000;
+    --accent-color: #4a90e2;
+    --card-bg: #ffffff;
+    --border-color: #cccccc;
+    --link-color: #2a5f9e;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+h1 {
+    color: var(--heading-color);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+}
+
+/* --- THE SIGHTING CAROUSEL (SIDEBAR) --- */
+
+.sighting-window {
+    width: 100%;
+    max-width: 350px; /* Constrains the high-res forest photos */
+    aspect-ratio: 16 / 9; 
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    background: #000;
+    margin: 20px 0;
+    position: relative;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.sighting-reel {
+    display: flex;
+    width: 200%; /* Holds peek.png and hiding.png */
+    height: 100%;
+    animation: stalker-loop 12s infinite alternate ease-in-out;
+}
+
+/* Pause the animation */
+.sighting-window:hover .sighting-reel {
+    animation-play-state: paused;
+}
+
+.sighting-reel figure {
+    width: 50%; 
+    height: 100%;
+    margin: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.sighting-reel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.9) contrast(1.2);
+    transition: filter 0.4s ease;
+}
+
+/* brighter when hovered */
+.sighting-reel img:hover {
+    filter: brightness(1);
+}
+
+.sighting-reel figcaption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: #888;
+    font-size: 0.75rem;
+    padding: 5px 10px;
+    text-align: right;
+    box-sizing: border-box;
+    border-top: 1px solid var(--border-color);
+}
+
+/* --- ANIMATION LOGIC --- */
+
+@keyframes stalker-loop {
+    0%, 40% { transform: translateX(0%); }      /* peek.png */
+    60%, 100% { transform: translateX(-50%); }  /* hiding.png */
+}
+
+/* --- CONTENT & LINKS --- */
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+    text-shadow: 0 0 8px var(--accent-color);
+}
+
+i {
+    color: #777;
+    font-style: italic;
+    display: block;
+    margin-bottom: 25px;
+}
+
+/* --- WIKI STATS STYLING --- */
+dl {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Aligns labels and values perfectly */
+    gap: 10px 20px;
+}
+
+dt {
+    color: var(--accent-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+dd {
+    margin: 0;
+    color: var(--text-color);
+    border-bottom: 1px dashed #222;
+    padding-bottom: 5px;
+}
+
+/* --- TEXT FLOW POLISH --- */
+p {
+    margin-bottom: 20px;
+    max-width: 800px; 
+}
+
+h2 {
+    color: var(--heading-color);
+    font-size: 1.2rem;
+    margin-top: 30px;
+    border-left: 3px solid var(--accent-color);
+    padding-left: 10px;
+}
+
+
+.system-status {
+    border-left: 3px solid var(--system-green);
+    background: rgba(0, 255, 65, 0.05);
+    padding: 10px 15px;
+    margin-top: 50px;
+    font-size: 0.8rem;
+    color: var(--system-green);
+    display: inline-block;
+}
+
+.system-status::before {
+    content: "● ";
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* --- SCROLLBAR CUSTOMIZATION --- */
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
+/* --- OTHER --- */
+#man-img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    display: flex;
+    border: 1px solid var(--border-color);
+    border-radius: 5%;
+}
+
+figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+    border: var(--accent-color) 1px solid;
+}

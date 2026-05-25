@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>man from the fog | Wiki</title>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('selected-theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+    <link rel="stylesheet" href="/website-stuffs/wiki-styles/main-styles.css">
+    <link rel="stylesheet" href="/website-stuffs/wiki-styles/spooky.css">
+    <script src="/website-stuffs/wiki-JS/main-code.js"></script>
+</head>
+<body>
+
+    <div class="wiki-layout">
+        <aside id="sidebar">
+            <div class="sidebar-inner">
+                <a href="./index.html" class="home-button">
+                    <img src="../../../assets/MC/Grass_Block.webp" class="icon" style="max-width: 50px; display: flex;">
+                </a>
+                <a href="/website-stuffs/index.html" class="s-home-button">
+                    <img src="/website-stuffs/assets/shared/general/info-icon.png" class="icon" style="max-width: 50px; display: flex;">
+                </a>
+                
+                <div class="theme-menu">
+                    <button class="menu-trigger" aria-haspopup="true" onclick="toggleThemeMenu(event)">Change Theme 🎨</button>
+                    <div class="menu-content" id="themeMenuContent">
+                        <button onclick="applyTheme('light')">Default Light</button>
+                        <button onclick="applyTheme('dark')">Dark Mode</button>
+                        <button onclick="applyTheme('kawaii')">🎀 Kawaii Mode</button>
+                        <button onclick="applyTheme('blue')">Ocean Blue</button>
+                        <button onclick="applyTheme('DARK MODE')">DARK MODE</button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <button id="sidebar-toggle" onclick="toggleSidebar()">&#9776;</button>
+
+        <main class="content-area">
+            <h1>The Man From the Fog</h1>
+             <figure>
+                <img src="\website-stuffs\assets\MC\MC-horror\The_Man_from_the_Fog.webp" alt="The Man From the Fog" ID="man-img">
+                <figcaption>The Man stares at the camera on a rainy day</figcaption>
+            </figure>
+<i>The man from the fog is a Minecraft horror mod that adds a tall lanky creature known as "the man" or "the man from the fog"</i>
+<p>This Page will cover sightings and known information about the man. You can find this mod on <a href="https://www.curseforge.com/minecraft/mc-mods/the-man-from-the-fog">curse forge</a> or <a href="https://modrinth.com/mod/the-man-from-the-fog">modrinth</a>. Both versions are called "The Man From The Fog" and created by <a href="https://www.curseforge.com/members/m_productions/projects">M_Productions</a> (curseforge) or <a href="https://modrinth.com/user/Ma_Do">Ma_Do</a> (modrinth). They are also the creator of other very popular horror mods such as the <a>knocker</a> and the <a>apollyon</a>, they are also owner of the less popular "cursed stare"</p>
+<!-- The Sighting Reel -->
+<div class="sighting-window">
+    <div class="sighting-reel">
+        <figure>
+            <img src="/website-stuffs/assets/MC/MC-horror/peek.png" alt="The Man Peeking">
+            <figcaption>Sighting A: Behind the trunk.</figcaption>
+        </figure>
+        <figure>
+            <img src="/website-stuffs/assets/MC/MC-horror/hiding.png" alt="The Man Hiding">
+            <figcaption>Sighting B: Deep in the brush.</figcaption>
+        </figure>
+    </div>
+</div>
+    <h1>Behavior</h1>
+            <p>The Man's behavior is strange but simple and follows a few rules which tell it what to do in the sight of a player.</p>
+        <h2>Brain</h2>
+            <p>Before The Man is spotted by the player he will make a whistling noise to signal that he has spawned, he can also do "false whistles" in which he actually hasn't spawned. Upon the player seeing The Man, he will either continue stalking, enter aggro mode after staring for ~5 sec, or he will enter aggro mode immediately.</p>
+        <h2>Modes</h2>
+            <p>The Man has multiple "modes" that he can enter at any given time. His stalking mode is where his head will always face the player, like he is watching you. Another of his modes is "aggro" or agressive, this is where he will chase you and do what is described in the "attack" section</p>
+        <h2>Attack</h2>
+            <p>The Man attacks in a strange way, upon entering aggro mode he will apply the darkness effect to the player's screen making them unablle to see. Then he will summon a lightning strike near him or ontop of him. Then he will get on all fours and crawl towards the player very quickly. Once he arrives at the player he will attack relentlessly until he is un-aggro'd or the target dies. Once un-aggro'd he will despawn with a lightning bolt hitting him similarly to when he spawns</p>
+
+<h1>Stats</h1>
+    <p>The Man has very high statistics, this heading will cover stats such as: damage, health, and chances of spawning.</p>
+    <div>
+        <dl>
+            <dt>Max Health</dt>
+            <dd>300 HP or 150 Hearts</dd>
+
+            <dt>Attack Damage</dt>
+            <dd>30 HP or 15 Hearts</dd>
+
+            <dt>Chase Speed</dt>
+            <dd>6-8 Blocks Per Second</dd>
+
+            <dt>Spawn Rate</dt>
+            <dd>Every 1-2 Nights, can be increased by darkness or damage</dd>
+
+            <dt>Height</dt>
+            <dd>3 Blocks(standing) 1 Block(crawling)</dd>
+        </dl>
+    </div>
+    </main>
+    </div>
+</body>
+</html>
