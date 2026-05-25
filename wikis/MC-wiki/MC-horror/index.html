@@ -12,11 +12,12 @@
     </script>
     <link rel="stylesheet" href="/website-stuffs/wiki-styles/main-styles.css">
     <link rel="stylesheet" href="/website-stuffs/wiki-styles/searchbar.css">
+    <script src="/website-stuffs/wiki-JS/main-code.js"></script>
     <style>
         body {
             margin: 0;
             padding: 0;
-            background: url('/website-stuffs/assets/MC/BG/MC-chill/shore.png') no-repeat center center fixed;
+            background: url('../../../assets/MC/MC-horror/river.png') no-repeat center center fixed;
             background-size: cover;
             min-height: 100vh;
         }
@@ -42,14 +43,13 @@
     <div class="wiki-layout">
         <aside id="sidebar">
             <div class="sidebar-inner">
-                <div class="home-buttons">
-                    <a href="./index.html" class="home-button">
-                        <img src="/website-stuffs/assets/MC/Grass_Block.webp" class="icon" style="max-width: 50px; display: flex;">
-                    </a>
-                 <a href="/website-stuffs/index.html" class="s-home-button">
-                        <img src="/website-stuffs/assets/shared/general/info-icon.png" class="icon" style="max-width: 50px; display: flex; ">
-                    </a>
-                </div>
+                <a href="./index.html" class="home-button">
+                    <img src="../../../assets/MC/Grass_Block.webp" class="icon" style="max-width: 50px; display: flex;">
+                </a>
+                <a href="/website-stuffs/index.html" class="s-home-button">
+                    <img src="/website-stuffs/assets/shared/general/info-icon.png" class="icon" style="max-width: 50px; display: flex;">
+                </a>
+                
                 <div class="theme-menu">
                     <button class="menu-trigger" aria-haspopup="true" onclick="toggleThemeMenu(event)">Change Theme 🎨</button>
                     <div class="menu-content" id="themeMenuContent">
@@ -66,14 +66,15 @@
         <button id="sidebar-toggle" onclick="toggleSidebar()">&#9776;</button>
 
         <main class="content-area">
-            <h1>Minecraft Wiki</h1>
-<p><em>Welcome to the Minecraft Wiki!This sub-wiki contains other sub-wikis so you can explore many things. We will try to document it all, but Minecraft might be too big to document all of.</em></p>
+            <h1>MC Horror</h1>
+<em>Welcome to the Minecraft horror wiki! This wiki contains many documented horror mods and other such things for you to check out!</em>
 <div class="search-wrapper">
     <input type="text" id="MCSearch" class="search-bar" data-source="/website-stuffs/wiki-data/MC-data.json" placeholder="Search the MC sub-wiki..." autocomplete="off">
     <ul class="results"></ul>
         </main>
 </div>
+        </main>
+    </div>
 </body>
-<script src="/website-stuffs/wiki-JS/main-code.js"></script>
-<script src="/website-stuffs/wiki-JS/search-bars.js"></script>
+    <script src="/website-stuffs/wiki-JS/search-bars.js"></script>
 </html>
